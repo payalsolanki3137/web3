@@ -1,28 +1,9 @@
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
-
-/**
- * @title ChainNova
- * @dev Decentralized dynamic ledger and registrar with data categorization and user registration.
- */
-contract ChainNova {
-    struct Entry {
-        bytes32 dataHash;        // Data hash (quantum-resistant recommended)
-        address submitter;       // Submitter’s address
-        uint256 timestamp;       // Block timestamp at entry submission
-        string category;         // Data category or tag (e.g., “document”, “transaction”)
-        string metadataURI;      // Off-chain metadata location (IPFS, Arweave)
+Data hash (quantum-resistant recommended)
+        address submitter;       Block timestamp at entry submission
+        string category;         Off-chain metadata location (IPFS, Arweave)
     }
 
-    // User registration storing additional info (optional)
-    struct User {
-        string username;
-        bool registered;
-    }
-
-    mapping(address => User) public users;
-
-    // Mapping entry IDs to Entries
+    Mapping entry IDs to Entries
     mapping(uint256 => Entry) private entries;
     uint256 private entryCount;
 
@@ -106,3 +87,6 @@ contract ChainNova {
         return entries[entryId].dataHash == dataHash;
     }
 }
+// 
+End
+// 
